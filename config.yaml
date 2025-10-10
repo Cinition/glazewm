@@ -115,58 +115,63 @@ window_behavior:
     fullscreen:
       # Maximize the window if possible. If the window doesn't have a
       # maximize button, then it'll be fullscreen'ed normally instead.
-      maximized: false
+      maximized: true
 
       # Whether to show fullscreen windows as always on top.
       shown_on_top: true
 
 workspaces:
-  - name: '1'
+  - name: '11'
     display_name: "1) Plastic"
     bind_to_monitor: 0
     keep_alive: true
 
-  - name: '2'
+  - name: '12'
     display_name: "2) File Pilot"
     bind_to_monitor: 0
     keep_alive: true
 
-  - name: '3'
+  - name: '13'
     display_name: "3) Everything"
     bind_to_monitor: 0
     keep_alive: true
 
-  - name: '0'
+  - name: '10'
     display_name: "0) ..."
     bind_to_monitor: 0
     keep_alive: true
 
-  - name: '11'
+  - name: '21'
     display_name: "1) VS [SH00]"
     bind_to_monitor: 1
     keep_alive: true
 
-  - name: '12'
+  - name: '22'
     display_name: "2) Terminal"
     bind_to_monitor: 1
     keep_alive: true
 
-  - name: '13'
+  - name: '23'
     display_name: "3) V3 Logging"
     bind_to_monitor: 1
     keep_alive: false
 
-  - name: '14'
+  - name: '24'
     display_name: "4) V3 Client"
     bind_to_monitor: 1
     keep_alive: false
 
-  - name: '15'
+  - name: '25'
     display_name: "5) VS [V3Desktop]"
     bind_to_monitor: 1
     keep_alive: false
 
-  - name: '10'
+  - name: '26'
+    display_name: "6) VS [AllProject]"
+    bind_to_monitor: 1
+    keep_alive: false
+
+  - name: '20'
     display_name: "0) ..."
     bind_to_monitor: 1
     keep_alive: true
@@ -222,38 +227,45 @@ window_rules:
     match:
       - window_title: { equals: 'Calculator' }
 
-  - commands: ['move --workspace 11', 'set-floating']
+  - commands: ['set-floating']
     match:
       - window_title: { equals: 'Search' }
-      - window_title: { equals: '' }
 
-  - commands: ['move --workspace 1']
+  - commands: ['move --workspace 11']
     match:
       - window_process: { equals: 'plastic' }
 
-  - commands: ['move --workspace 2']
+  - commands: ['move --workspace 12']
     match:
       - window_process: { equals: 'FPilot' }
 
-  - commands: ['move --workspace 3']
+  - commands: ['move --workspace 13']
     match:
       - window_process: { equals: 'Everything' }
 
-  - commands: ['move --workspace 11', 'set-tiling']
+  - commands: ['move --workspace 21', 'set-tiling']
     match:
       - window_title: { regex: 'SH00 - .* - Microsoft Visual Studio' }
 
-  - commands: ['move --workspace 13']
+  - commands: ['move --workspace 23']
     match:
       - window_title: { regex: 'V3\\Bin\\V3Client' }
 
-  - commands: ['move --workspace 13']
+  - commands: ['move --workspace 23']
     match:
       - window_title: { equals: 'LuaConsole' }
 
-  - commands: ['move --workspace 14']
+  - commands: ['move --workspace 24']
     match:
       - window_title: { equals: 'Tenstar' }
+
+  - commands: ['move --workspace 25', 'set-tiling']
+    match:
+      - window_title: { regex: 'V3DesktopClient - .* - Microsoft Visual Studio' }
+
+  - commands: ['move --workspace 26', 'set-tiling']
+    match:
+      - window_title: { regex: 'AllProjects - .* - Microsoft Visual Studio' }
 
   - commands: ['move --workspace 31']
     match:
@@ -291,30 +303,32 @@ binding_modes:
 
   - name: 'left_screen'
     keybindings:
-      - commands: ['focus --workspace 1', 'wm-disable-binding-mode --name left_screen']
+      - commands: ['focus --workspace 11', 'wm-disable-binding-mode --name left_screen']
         bindings: ['alt+1']
-      - commands: ['focus --workspace 2', 'wm-disable-binding-mode --name left_screen']
+      - commands: ['focus --workspace 12', 'wm-disable-binding-mode --name left_screen']
         bindings: ['alt+2']
-      - commands: ['focus --workspace 3', 'wm-disable-binding-mode --name left_screen']
+      - commands: ['focus --workspace 13', 'wm-disable-binding-mode --name left_screen']
         bindings: ['alt+3']
-      - commands: ['focus --workspace 0', 'wm-disable-binding-mode --name left_screen']
+      - commands: ['focus --workspace 10', 'wm-disable-binding-mode --name left_screen']
         bindings: ['alt+0']
       - commands: ['wm-disable-binding-mode --name left_screen']
         bindings: ['escape', 'enter']
 
   - name: 'center_screen'
     keybindings:
-      - commands: ['focus --workspace 11', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 21', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+1']
-      - commands: ['focus --workspace 12', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 22', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+2']
-      - commands: ['focus --workspace 13', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 23', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+3']
-      - commands: ['focus --workspace 14', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 24', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+4']
-      - commands: ['focus --workspace 15', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 25', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+5']
-      - commands: ['focus --workspace 10', 'wm-disable-binding-mode --name center_screen']
+      - commands: ['focus --workspace 26', 'wm-disable-binding-mode --name center_screen']
+        bindings: ['alt+6']
+      - commands: ['focus --workspace 20', 'wm-disable-binding-mode --name center_screen']
         bindings: ['alt+0']
       - commands: ['wm-disable-binding-mode --name center_screen']
         bindings: ['escape', 'enter']
