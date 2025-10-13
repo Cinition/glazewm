@@ -230,6 +230,9 @@ window_rules:
   - commands: ['set-floating']
     match:
       - window_title: { equals: 'Search' }
+      - window_title: { equals: 'SH00' }
+      - window_title: { equals: 'AllProjects' }
+      - window_title: { equals: 'V3DesktopClient' }
 
   - commands: ['move --workspace 11']
     match:
@@ -440,9 +443,9 @@ keybindings:
     bindings: ['alt+s']
 
   # Move focused window to a workspace defined in `workspaces` config.
-  - commands: ['move --workspace 0', 'focus --workspace 0']
-    bindings: ['alt+shift+1']
   - commands: ['move --workspace 10', 'focus --workspace 10']
+    bindings: ['alt+shift+1']
+  - commands: ['move --workspace 20', 'focus --workspace 20']
     bindings: ['alt+shift+2']
   - commands: ['move --workspace 30', 'focus --workspace 30']
     bindings: ['alt+shift+3']
