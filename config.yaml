@@ -186,6 +186,11 @@ workspaces:
     bind_to_monitor: 3
     keep_alive: true
 
+  - name: '33'
+    display_name: "3) Notes"
+    bind_to_monitor: 3
+    keep_alive: false
+
   - name: '30'
     display_name: "0) ..."
     bind_to_monitor: 3
@@ -285,6 +290,14 @@ window_rules:
   - commands: ['move --workspace 32']
     match:
       - window_process: { equals: 'ms-teams' }
+
+  - commands: ['move --workspace 33']
+    match:
+      - window_process: { equals: 'Notion' }
+
+  - commands: ['move --workspace 33']
+    match:
+      - window_process: { equals: 'Notepad' }
 
   - commands: ['move --workspace 99']
     match:
